@@ -4,6 +4,7 @@ This project makes it easy to create and destroy Minecraft servers on DigitalOce
 ## Usage
 - `cp .env.sample .env`
 - Add your DigitalOcean API token to `.env`
+- Add your SSH key fingerpring to `.env`
 - Make a virtualenv if you wish
 - `pip install -r requirements`
 - `python3 get_droplets.py`
