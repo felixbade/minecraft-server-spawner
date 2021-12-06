@@ -26,6 +26,15 @@ def api_post(path, body):
     response = requests.post(url, json=body, headers=headers)
     return json.loads(response.text)
 
+def api_delete(path):
+    url = 'https://api.digitalocean.com/v2{}'.format(path)
+    headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer {}'.format(api_token)
+            }
+    response = requests.delete(url, headers=headers)
+    return response.text
+
 
 
 def get_droplets(page=1, per_page=10):
@@ -45,4 +54,9 @@ def create_droplet(name, region, size, image, **kwargs):
     body.update(kwargs) # ssh_keys, tags, user_data, etc.
 
     response = api_post(path, body=body)
+    return response
+
+def delete_droplet(droplet_id):
+    path = '/droplets/{}'.format(droplet_id)
+    response = api_delete(path)
     return response
