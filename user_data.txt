@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# From https://docs.digitalocean.com/products/droplets/how-to/provide-user-data/
+# Check https://docs.digitalocean.com/products/volumes/how-to/mount/
+mkdir /mnt/minecraft_data
+mount -o defaults,nofail,discard,noatime /dev/disk/by-id/xxxxxxxxxxxxxxxxxxxxxxx /mnt/minecraft_data/
 
-apt-get -y update
-apt-get -y install nginx
-export HOSTNAME=$(curl -s http://169.254.169.254/metadata/v1/hostname)
-export PUBLIC_IPV4=$(curl -s http://169.254.169.254/metadata/v1/interfaces/public/0/ipv4/address)
-echo Droplet: $HOSTNAME, IP Address: $PUBLIC_IPV4 > /usr/share/nginx/html/index.html
+# Install java 17 and run papermc server
+apt install -y openjdk-17-jre-headless
+cd /mnt/minecraft_data/minecraft_server
+java -Xms2G -Xmx2G -jar paper-1.17.1-397.jar --nogui
