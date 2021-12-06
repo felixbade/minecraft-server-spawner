@@ -1,5 +1,5 @@
 # Minecraft Server Spawner
-This project makes it easy to create and destroy Minecraft servers. This way you are only billed by the hours you play – so you can afford the beefy server.
+This project makes it easy to create and destroy Minecraft servers. This way you are only billed by the hours you play – so you can afford the beefy server. The world data is stored on a Volume.
 
 ## Usage
 - `cp .env.sample .env`
