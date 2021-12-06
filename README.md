@@ -1,5 +1,7 @@
 # Minecraft Server Spawner
+This project makes it easy to create and destroy Minecraft servers. This way you are only billed by the hours you play – so you can afford the beefy server.
 
+## Usage
 - `cp .env.sample .env`
 - Add your DigitalOcean API token to `.env`
 - Make a virtualenv if you wish
