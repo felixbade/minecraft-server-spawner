@@ -12,7 +12,7 @@ for droplet in droplets:
     price_s = '{:.2f} €/mo'.format(price)
     networkv4 = droplet['networks']['v4']
     ipv4_address = [x for x in networkv4 if x['type'] == 'public'][0]['ip_address']
-    table.rows.append([name, ipv4_address, price_s])
+    table.rows.append([name, ipv4_address, price_s, droplet['id']])
 
 table.set_style(BeautifulTable.STYLE_NONE)
 table.columns.alignment = BeautifulTable.ALIGN_LEFT
